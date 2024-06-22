@@ -1,0 +1,407 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= require simple_calendar
+ *= require_tree .
+ *= require_self
+ */
+ * {
+    padding: 0;
+    margin: 0;
+ }
+
+  header {
+  align-items: center;
+  padding: 0 20px;
+  background: #B45F04;
+  display: flex;
+  justify-content: space-around;
+  height: 80px;
+  color:  #FFFFFF;
+}
+// .space{
+//   width: 20px;
+// }
+// .muscle{text-align: center;
+// }
+
+/* ここから下がハンバーガーメニューに関するCSS */
+  
+/* チェックボックスを非表示にする */
+.drawer_hidden {
+  display: none;
+}
+.nav{
+  color: #FFFFFF; 
+  text-decoration: none; 
+}
+/* ハンバーガーアイコンの設置スペース */
+.drawer_open {
+  display: flex;
+  height: 60px;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 100;/* 重なり順を一番上にする */
+  cursor: pointer;
+  position: absolute;
+  top: 0.5%;
+  right: 2%;
+}
+
+/* ハンバーガーメニューのアイコン */
+.drawer_open span,
+.drawer_open span:before,
+.drawer_open span:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  background: #333;
+  transition: 0.5s;
+  position: absolute;
+}
+header a {
+  color: white; 
+  text-decoration: none; 
+  position: relative;
+  list-style-type: none;
+  padding: 3px 7px;
+  position: relative;
+  display: block;
+  margin: 10px ;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/* 三本線の一番上の棒の位置調整 */
+.drawer_open span:before {
+  bottom: 8px;
+}
+
+/* 三本線の一番下の棒の位置調整 */
+.drawer_open span:after {
+  top: 8px;
+}
+
+/* アイコンがクリックされたら真ん中の線を透明にする */
+#drawer_input:checked ~ .drawer_open span {
+  background: rgba(255, 255, 255, 0);
+}
+
+/* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+#drawer_input:checked ~ .drawer_open span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+#drawer_input:checked ~ .drawer_open span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* メニューのデザイン*/
+.nav_content {
+  width: 30%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 100%; /* メニューを画面の外に飛ばす */
+  z-index: 99;
+  margin-left: 70%;
+  transition: .5s;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #B45F04;;
+  
+}
+
+/* メニュー黒ポチを消す */
+.nav_list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1em 0 1.9em;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* アイコンがクリックされたらメニューを表示 */
+#drawer_input:checked ~ .nav_content {
+  left: 0;/* メニューを画面に入れる */
+}
+footer {
+  color: white;
+  height: 30px;
+  background-color: #000;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  justify-content: flex-end;
+} 
+
+//  index css
+.top{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1em 0 1.9em;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+}
+.tweets-container {
+  width: 50%;
+  margin: 10px auto;
+}
+h3 {
+  width: 100px;
+  margin: 30px auto;
+  text-align: center;
+}
+.tweet {
+  border-top: solid #585858;
+  margin-top: 10px;
+  padding-top: 20px;
+}
+.main-box {
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.time {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.jobs-container {
+  width: 50%;
+  margin: 10px auto;
+}
+h3 {
+  width: 100px;
+  margin: 30px auto;
+  text-align: center;
+}
+.job {
+  border-top: solid #585858;
+  margin-top: 10px;
+  padding-top: 20px;
+}
+.main-box {
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.time {
+  display: flex;
+  justify-content: flex-end;
+}
+.goals-container {
+  width: 50%;
+  margin: 10px auto;
+}
+h3 {
+  width: 100px;
+  margin: 30px auto;
+  text-align: center;
+}
+.goal {
+  border-top: solid #585858;
+  margin-top: 10px;
+  padding-top: 20px;
+}
+.main-box {
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.time {
+  display: flex;
+  justify-content: flex-end;
+}
+.sakujo{
+  text-decoration: none;
+ }
+
+  // newcss
+  .post-container {
+    margin: 50px auto;
+    width: 50%;
+    border: solid #d3def1;
+    border-radius: 10px;
+    text-align: center;
+    background-color:  #B45F04;
+    color:  #FFFFFF;
+    margin: 100px auto;
+  }
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 auto;
+    color:  #FFFFFF;
+  }
+  input[type="text"] {
+    width: 80%;
+    height: 30px;
+  }
+  input[type="submit"] {
+    width: 200px;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+
+    // user-passwordcss
+      .field label {
+      font-weight: 100;
+      font-size: 15px;
+      }
+    .actions input[type="submit"]:hover {
+      cursor: pointer;
+      background: linear-gradient(to bottom,#1c94ea,#5ba2f4f3);
+      }
+  
+      .field input[type="email"]:focus,
+  .field input[type="password"]:focus {
+      transform: scale(1.1);
+  }
+
+  
+    
+    
+    
+    
+  //  user-edit
+    
+    .field input[type="name"] {
+    border-style: none;
+    width: 200px;
+    height: 30px;
+    background:#FFFFFF;
+    border-radius: 10px;
+    border: 1px #060339 solid;
+    }
+    
+    
+    .field input[type="e-mail"] {
+    border-style: none;
+    width: 200px;
+    height: 30px;
+    background: #DBA901;
+    border-radius: 10px;
+    border: 1px #060339 solid;
+    }
+    
+    .field input[type="password"] {
+        border-style: none;
+        width: 200px;
+        height: 30px;
+        background:#FFFFFF;
+        border-radius: 10px;
+        border: 1px #060339 solid;
+        }
+        
+        .field input[type="password_confirmations"] {
+            border-style: none;
+            width: 200px;
+            height: 30px;
+            background:#FFFFFF;
+            border-radius: 10px;
+            border: 1px #060339 solid;
+            }
+                
+    
+    
+    
+    // .actions input[type="submit"] {
+    // border-style: none;
+    // width: 150px;
+    // height: 30px;
+    // background: #f2a566;
+    // border-radius: 10px;
+    // border: 1px #060339 solid;
+    // }
+    
+    // user-newcss
+    .actions input[type="submit"]:hover {
+    cursor: pointer;
+    background: linear-gradient(to bottom,#1c94ea,#5ba2f4f3);}
+
+    
+      
+      
+      .field input[type="email"] {
+      border-style: none;
+      width: 200px;
+      height: 30px;
+      background:#FFFFFF;
+      border-radius: 10px;
+      border: 1px #060339 solid;
+      }
+      
+      
+      .field input[type="password"] {
+      border-style: none;
+      width: 200px;
+      height: 30px;
+      background: #FFFFFF;
+      border-radius: 10px;
+      border: 1px #060339 solid;
+      }
+      
+      
+      
+      
+      // .actions input[type="submit"] {
+      // border-style: none;
+      // width: 150px;
+      // height: 30px;
+      // background: #f2a566;
+      // border-radius: 10px;
+      // border: 1px #060339 solid;
+      // }
+      
+      
+      .actions input[type="submit"]:hover {
+      cursor: pointer;
+      background: linear-gradient(to bottom,#1c94ea,#5ba2f4f3);}
+  // user css 
+    .blank1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+    }
+    .blank2{
+    text-align: center;
+    width: 50%;
+    text-align: center;
+    color:  #FFFFFF;
+    background:   #B45F04;
+    border-radius: 9px;
+    margin: 20px 5px;
+    padding: 20px 40px;
+    }
+       
