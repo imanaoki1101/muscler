@@ -1,0 +1,9 @@
+<h1>カレンダー</h1>
+<h3>予定詳細</h3>
+<div class="post">
+  <p><%= @post.title %></p>
+  <p><%= @post.start_time %></p>
+  <p><%= @post.end_time %></p>
+</div>
+<%= link_to "カレンダーに戻る", posts_path %>
+<%= link_to "編集する", edit_post_path(@post.id) %>

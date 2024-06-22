@@ -1,0 +1,9 @@
+<h1>マッスルTwitter</h1>
+<h3>長期目標詳細</h3>
+<div class="goal">
+  <p><%= @goal.deadline %></p>
+  <p><%= @goal.weight %></p>
+  <p><%= @goal.created_at %></p>
+</div>
+<%= link_to "編集する", edit_goal_path(@goal.id) %>
+<%= link_to "長期目標一覧に戻る", goals_path %>

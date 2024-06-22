@@ -1,0 +1,36 @@
+<%= stylesheet_link_tag 'index', :media => "all" %>
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<div class="tweets-container"> 
+<h1>マッスルトーク</h1>
+<%= link_to "新規投稿へ", new_tweet_path %>
+<% @tweets.each do |t| %>
+    <div class="tweet">
+    <div class="main-box">
+    <div class="left-container"> 
+<%= link_to t.user.name, user_path(t.user.id) %></div>
+    <div class="right-container">
+    <%= t.trainingname %>
+    <%= t.trainingnumber %>
+    <%= t.body %></div></div>
+    <% if user_signed_in? %>
+    <% if current_user.already_liked?(t) %>
+        <%= button_to tweet_like_path(id: t.id, tweet_id: t.id), method: :delete do %>
+        <i class="fa-sharp fa-solid fa-heart" style="color: #df0c36;"></i>
+    <% end %>
+    <% else %>
+        <%= button_to tweet_likes_path(id: t.id, tweet_id: t.id), method: :post do %>
+        <i class="fa-sharp fa-solid fa-heart" style="color: #df0c36;"></i><%= t.likes.count %></i>
+        <% end %>
+    <% end %>
+<% else %>
+<i class="fa-sharp fa-solid fa-heart" style="color: #df0c36;"></i><%= t.likes.count %></i>
+<% end %>
+    <%= t.created_at %>
+    <%= link_to "コメントする", tweet_path(t.id) %>
+    <% if user_signed_in? && current_user.id == t.user_id %>
+    <%= link_to "編集する", edit_tweet_path(t.id) %> 
+    <%= button_to "削除する", tweet_path(t.id), method: :delete %>
+    <% end %>
+    </div>
+<% end %>
+</div>

@@ -1,0 +1,21 @@
+<div class="goals-container">
+  <h1>長期目標</h1>
+<%= link_to "新規投稿へ", new_goal_path %>
+  <% @goals.each do |t| %>
+    <div class="goal">
+      <%= link_to t.user.name, user_path(t.user.id) %>
+        <%= t.fet %>
+        <%= t.weight %>
+        <%= t.states %>
+      <%= link_to "詳細へ", goal_path(t.id) %> 
+      <% if user_signed_in? && current_user.id == t.user_id %>
+        <%= link_to "編集する", edit_goal_path(t.id) %>
+        <%= button_to "削除する", goal_path(t.id), method: :delete %>
+        <% end %> 
+    </div>
+  <% end %>
+</div>
+<% if user_signed_in? %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+<% end %>
+

@@ -1,0 +1,7 @@
+<%= form_for @job do |f| %>
+  <%= f.label :いつまでに %>
+  <%= f.text_field :trainingname, :size => 140 %> 
+  <%= f.label :何をどのくらいするのか %>
+  <%= f.text_field :trainingnumber, :size => 140 %> 
+  <%= f.submit "編集する" %>
+<% end %>

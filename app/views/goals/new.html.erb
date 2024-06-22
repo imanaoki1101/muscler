@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag 'new', :media => "all" %>
+
+<div class="post-container">
+    <p class="title">長期目標設定</p>
+    <%= form_for(@goal, :url => { controller:'goals', action:'create'})do |f| %>
+<br>
+    <p><%= f.label :いつまでに %></p>
+    <%= f.text_field :fet, :size => 140 %>
+    <p><%= f.label :体重と体脂肪 %></p>
+    <%= f.text_field :weight, :size => 140 %>
+<br>
+
+<%= f.submit '設定'%>
+<% end %></div>
+<%= link_to "長期目標一覧", goals_path %>

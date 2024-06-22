@@ -1,0 +1,23 @@
+<%= stylesheet_link_tag 'new', :media => "all" %>
+<div class="post-container">
+    <p class="title">投稿フォーム</p>
+    <%= form_for(@tweet, :url => { controller:'tweets', action:'create'})do |f| %>
+  <div class="field">
+      <br>
+      <%= f.label :鍛えた部位 %>
+      <p><%= f.select:trainingname,  [["胸","胸"],
+        ["肩","肩"],
+        ["腹","腹"],
+        ["脚","脚"],
+        ["背中","背中"],
+        ["上半身","上半身"],
+        ["下半身","下半身"],
+        ["有酸素","有酸素"]],include_blank:"選択してください" %> </p>
+      <p><%= f.label :トレーニング内容 %></p>
+      <%= f.text_field :trainingnumber, :size => 140 %>
+      <p><%= f.label :重さ・回数 %></p>
+      <%= f.text_field :body, :size => 140 %><br>
+      <%= f.submit "Tweetする" %>
+    </div>
+<% end %></div>
+<%= link_to "Tweet一覧に戻る", tweets_path %>

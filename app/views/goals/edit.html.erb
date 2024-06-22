@@ -1,0 +1,7 @@
+<%= form_for @goal do |f| %>
+  <%= f.label :いつまでに %>
+  <%= f.text_field :fet, :size => 140 %> 
+  <%= f.label :体重と体脂肪 %>
+  <%= f.text_field :weight, :size => 140 %>  
+  <%= f.submit "編集する" %>
+<% end %>

@@ -1,0 +1,10 @@
+<%= month_calendar(attribute: :start_time, start_attribute: :start_time, end_attribute: :end_time, events: @events) do |date, events| %>
+    <%= date %>
+  <% events.each do |event| %>
+  <% if user_signed_in? && current_user.id == event.user_id %>
+      <p><%= link_to event.title, event %></p>
+      <%= link_to "編集する", edit_post_path(event.id) %>
+  <% end %>
+  <% end %>
+  <% end %>
+<%= link_to "予定入力", new_post_path %>

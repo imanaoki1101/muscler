@@ -1,0 +1,9 @@
+<%= form_for @tweet do |f| %>
+  <%= f.label :トレーニング内容 %>
+    <%= f.text_field :trainingname, :size => 140 %>
+    <%= f.label :トレーニング回数 %>
+    <%= f.text_field :trainingnumber, :size => 140 %>
+    <%= f.label :考え中 %>
+    <%= f.text_field :body, :size => 140 %>
+  <%= f.submit "編集する" %>
+<% end %>

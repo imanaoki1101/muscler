@@ -1,0 +1,13 @@
+<%= stylesheet_link_tag 'new', :media => "all" %>
+<div class="post-container">
+    <p class="title">短期目標設定</p>
+    <%= form_for(@job, :url => { controller:'jobs', action:'create'})do |f| %>
+    <p><%= f.label :いつまでに %></p>
+    <%= f.text_field :trainingname, :size => 140 %>
+    <p><%= f.label :何をどのくらいするか %></p>
+    <%= f.text_field :trainingnumber, :size => 140 %>
+  <%= f.submit "設定する" %>
+  </div>
+  <% end %>
+  <p><%= link_to "短期目標一覧", jobs_path %></p>
+

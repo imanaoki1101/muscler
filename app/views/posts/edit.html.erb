@@ -1,0 +1,11 @@
+<div class="blank1">
+  <div class="blank2">
+<%= form_for @post do |f| %>
+  <%= f.label :"トレーニング部位" %>
+        <p><%= f.text_field :title, :size => 20 %></p>
+        <%= f.label :start_time,"いつ" %>
+        <p><%= f.date_field :start_time %></p>
+  <%= f.submit "編集する" %>
+  </div>
+  </div>
+<% end %>

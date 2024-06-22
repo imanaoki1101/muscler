@@ -1,0 +1,9 @@
+<h1>マッスルTwitter</h1>
+<h3>短期目標詳細</h3>
+<div class="job">
+  <p><%= @job.trainingname %></p>
+  <p><%= @job.trainingnumber %></p>
+  <p><%= @job.created_at %></p>
+</div>
+<%= link_to "編集する", edit_job_path(@job.id) %>
+<%= link_to "Tweet一覧に戻る", jobs_path %>

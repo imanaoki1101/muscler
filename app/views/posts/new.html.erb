@@ -1,0 +1,22 @@
+<%= stylesheet_link_tag 'posts_new', :media => "all" %>
+<%= form_for @post do |f| %>
+<div class="blank1">
+  <div class="blank2">
+    <div class="field">
+        <%= f.label :トレーニング部位 %>
+        <p><%= f.select :title, 
+        [["胸","胸"],
+        ["肩","肩"],
+        ["腹","腹"],
+        ["脚","脚"],
+        ["背中","背中"],
+        ["上半身","上半身"],
+        ["下半身","下半身"],
+        ["有酸素","有酸素"]],include_blank:"選択してください" %> </p>
+        <%= f.label :start_time,"いつ" %>
+        <p><%= f.date_field :start_time %></p>
+    </div>
+    <%= f.submit "投稿する" %>
+<% end %>
+</div>
+</div>

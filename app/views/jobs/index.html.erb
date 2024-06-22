@@ -1,0 +1,16 @@
+<div class="jobs-container">
+  <h1>短期目標一覧</h1>
+  <%= link_to "新規投稿へ", new_job_path %>
+  <% @jobs.each do |t| %>
+    <div class="job">
+        <%= link_to t.user.name, user_path(t.user.id) %>
+      <%= t.trainingname %>
+      <%= t.trainingnumber %>
+      <%= link_to "詳細へ", job_path(t.id) %>
+      <% if user_signed_in? && current_user.id == t.user_id %>
+      <%= link_to "編集する", edit_job_path(t.id) %>
+        <%= button_to "削除する", job_path(t.id), method: :delete %>
+  <% end %> 
+    </div>
+  <% end %>
+</div>

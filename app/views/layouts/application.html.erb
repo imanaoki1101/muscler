@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>マッスル</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/c6a652a995.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+
+  <body>
+    <header>
+      <div class="space">
+      </div>
+      <div class="muscle">
+        <h1>マッスルプラン</h1>
+      </div>
+      <div class="nav">
+        <input id="drawer_input" class="drawer_hidden" type="checkbox">
+        <label for="drawer_input" class="drawer_open">
+          <span></span>
+        </label>
+        <nav class="nav_content">
+          <ul class="nav_list">
+            <% if user_signed_in? %>
+              <a><li><%= link_to "マッスルトーク", new_tweet_path %></li></a>
+              <a><li><%= link_to "長期目標", new_goal_path %></li></a>
+              <a><li><%= link_to "短期目標", new_job_path %></li></a>
+              <a><li><%= link_to "カレンダー", posts_path %></li></a>
+              <a><li><%= link_to "マイページへ", user_path(current_user.id) %></li></a>
+              <div class="button">
+              <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            </div>
+            <% else %> 
+              <a><li><%= link_to "ログイン", tweets_path %></li></a>
+              <a><li><%= link_to "新規登録", new_user_registration_path %></li></a>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <p>© 2024 マッスルプラン All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
+
