@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  deadline: 2024-05-13
+  trainingname: MyString
+  trainingnumber: MyString
+
+two:
+  deadline: 2024-05-13
+  trainingname: MyString
+  trainingnumber: MyString

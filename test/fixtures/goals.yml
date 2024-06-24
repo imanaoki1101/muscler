@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  deadlone: 2024-05-11
+  weight: MyString
+  fet: MyString
+
+two:
+  deadlone: 2024-05-11
+  weight: MyString
+  fet: MyString
